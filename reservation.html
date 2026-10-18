@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:site_name" content="Restaurant Kesar">
+  <meta property="og:locale" content="de_AT">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Tisch reservieren | Restaurant Kesar">
+  <title>Tisch reservieren | Restaurant Kesar</title>
+  
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="assets/img/iPhone-Icon.png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Base & Reservation Styles -->
+  <link rel="stylesheet" href="assets/css/reservation.css">
+</head>
+<body class="reservation-page">
+
+  <!-- ==========================================
+       Header & Top Navigation
+       ========================================== -->
+  <header class="reservation-header">
+    <a href="index.html" class="brand-wrap">
+      <img src="assets/img/logo/kesar-logo-signet.svg" alt="Restaurant Kesar" class="brand-logo">
+      <div>
+        <h1 class="brand-title">Restaurant Kesar</h1>
+        <span class="brand-subtitle" id="brandSubtitle">FEINE KÜCHE & GASTFREUNDSCHAFT SEIT 20 JAHREN</span>
+      </div>
+    </a>
+
+    <div class="header-actions">
+      <!-- Back to Main Website -->
+      <a href="index.html" class="btn-header-back" id="btnBackHome">
+        <span>&larr;</span> <span>Zurück zur Website</span>
+      </a>
+
+      <!-- My Bookings Modal Trigger -->
+      <button type="button" class="btn-my-bookings" id="btnMyBookings">
+        <span>&#128197;</span> <span>Meine Buchungen</span>
+        <span class="bookings-count-badge" id="bookingsCountBadge">0</span>
+      </button>
+
+      <!-- Language Toggle Switch (DE / EN) -->
+      <div class="lang-switch-wrap">
+        <button type="button" class="lang-toggle-btn" id="btnLangToggle" title="Sprache wechseln / Switch Language">
+          <span class="flag-icon" id="langFlag">🇩🇪</span>
+          <span id="langText">DE</span>
+          <span style="font-size:10px;">&#9662;</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       Main Reservation Content
+       ========================================== -->
+  <main class="reservation-container">
+
+    <!-- LEFT CARD: Restaurant Details & Policies (Matches user screenshot) -->
+    <aside class="kesar-card info-card">
+      <div class="info-card-header">
+        <div>
+          <h2 class="restaurant-title" id="restaurantTitle">Restaurant Kesar</h2>
+          <a href="https://maps.google.com/?q=Heidenreichsteinerstraße+28,+3830+Waidhofen+an+der+Thaya" target="_blank" rel="noopener noreferrer" class="restaurant-address" id="restaurantAddress">
+            <span>&#128205;</span> Heidenreichsteinerstraße 28, 3830 Waidhofen an der Thaya
+          </a>
+        </div>
+        <div class="lang-pill-badge" id="langPillBadge">
+          <span>🇩🇪</span> <span>DE</span>
+        </div>
+      </div>
+
+      <!-- Buchungspolitik -->
+      <div class="info-section">
+        <div class="info-section-title">
+          <span id="policyTitle">Buchungspolitik</span>
+          <span class="badge-open-status" id="policyStatus">Online-Reservierung geöffnet</span>
+        </div>
+        <p class="policy-text" id="policyP1">
+          Unser Restaurant ist täglich von <strong>07:00 bis 24:00 Uhr</strong> für Sie geöffnet.
+        </p>
+        <p class="policy-text" id="policyP2">
+          Wir verfügen über <strong>15 exklusive Tische</strong> im gemütlichen Innenbereich, Wintergarten und Chef’s Room.
+        </p>
+        <p class="policy-text" id="policyP3">
+          Tischreservierungen werden für 15 Minuten bei Verspätung aufrechterhalten.
+        </p>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <!-- Menü & Ablauf -->
+      <div class="info-section">
+        <h3 class="info-section-title" id="expTitle">MENÜ UND ABLAUF DES BESUCHS</h3>
+        <div class="experience-block">
+          <span id="expShort">Erleben Sie die Vielfalt unserer Küche, meisterhaft zubereitet mit frischen, regionalen und authentischen Zutaten. </span>
+          <span class="experience-more" id="expMore">Für besondere Anlässe, Jubiläen oder geschäftliche Dinner stimmen wir das Menü gerne vorab persönlich mit Ihnen ab. Unser Service-Team begleitet Sie aufmerksam durch Ihren Genussmoment.</span>
+          <div>
+            <button type="button" class="btn-toggle-more" id="btnToggleExp">Mehr anzeigen</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <!-- Information Icons Grid -->
+      <div class="info-section">
+        <h3 class="info-section-title" id="infoTitle">Informationen zum Restaurant</h3>
+        
+        <div class="info-cards-grid">
+          <!-- Item 1: Grace period -->
+          <div class="info-grid-item">
+            <div class="info-icon-box">&#9201;</div>
+            <div class="info-grid-content">
+              <h4 id="infoLateTitle">Tisch behalten bei Verspätung</h4>
+              <p id="infoLateDesc">Wir halten Ihre Reservierung 15 Minuten lang frei.</p>
+            </div>
+          </div>
+
+          <!-- Item 2: Kids -->
+          <div class="info-grid-item">
+            <div class="info-icon-box">&#128118;</div>
+            <div class="info-grid-content">
+              <h4 id="infoKidsTitle">Kinderfreundlich</h4>
+              <p id="infoKidsDesc">Herzlich willkommen, Hochstühle sind vorhanden.</p>
+            </div>
+          </div>
+
+          <!-- Item 3: Pets -->
+          <div class="info-grid-item">
+            <div class="info-icon-box">&#128054;</div>
+            <div class="info-grid-content">
+              <h4 id="infoPetsTitle">Haustiere</h4>
+              <p id="infoPetsDesc">Im Terrassen- und Außenbereich gerne gestattet.</p>
+            </div>
+          </div>
+
+          <!-- Item 4: Wheelchair -->
+          <div class="info-grid-item">
+            <div class="info-icon-box">&#9855;</div>
+            <div class="info-grid-content">
+              <h4 id="infoAccessTitle">Barrierefreier Zugang</h4>
+              <p id="infoAccessDesc">Ebenerdiger Eingang für Rollstuhlfahrer.</p>
+            </div>
+          </div>
+
+          <!-- Item 5: Groups -->
+          <div class="info-grid-item">
+            <div class="info-icon-box">&#128101;</div>
+            <div class="info-grid-content">
+              <h4 id="infoGroupTitle">Gruppenreservierungen</h4>
+              <p id="infoGroupDesc">Ab 8 Personen bitte telefonisch anfragen.</p>
+            </div>
+          </div>
+
+          <!-- Item 6: Hours -->
+          <div class="info-grid-item">
+            <div class="info-icon-box">&#128339;</div>
+            <div class="info-grid-content">
+              <h4 id="infoHoursTitle">Öffnungszeiten</h4>
+              <p id="infoHoursDesc">Täglich von 07:00 bis 24:00 Uhr (Küche bis 23:00).</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Direct Contact Banner -->
+        <div class="contact-quick-box">
+          <div class="contact-meta">
+            <strong id="quickContactText">Haben Sie Fragen oder spezielle Wünsche?</strong>
+            <span>E-Mail: <a href="mailto:office@restaurantkesar.at" style="color:#d39969; text-decoration:none;">office@restaurantkesar.at</a></span>
+          </div>
+          <div>
+            <a href="tel:+43284252555" class="phone-link">&#128222; +43 2842 52555</a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT CARD: The Interactive Booking Engine (Matches user screenshot) -->
+    <section class="kesar-card booking-card">
+
+      <!-- STEP 1: Date & Guests Selection -->
+      <div class="booking-step">
+        <h3 class="booking-step-title" id="step1Title">
+          <span class="step-num-badge">1</span> 1. Datum & Gäste wählen
+        </h3>
+
+        <!-- Month Navigation Header -->
+        <div class="month-nav-header">
+          <div class="month-display" id="monthDisplay">Oktober 2026</div>
+          <div class="month-nav-btns">
+            <button type="button" class="btn-nav-arrow" id="btnPrevMonth" title="Vorherige Tage">&larr;</button>
+            <button type="button" class="btn-nav-arrow" id="btnNextMonth" title="Nächste Tage">&rarr;</button>
+          </div>
+        </div>
+
+        <!-- 7-Day Selector Strip (Matches screenshot) -->
+        <div class="days-strip-container">
+          <div class="days-strip" id="daysStrip">
+            <!-- Dynamically populated by reservation.js -->
+          </div>
+        </div>
+
+        <!-- Guests Count Pills -->
+        <div class="guest-pills-wrap" id="guestPillsWrap">
+          <!-- Dynamically populated: 1, 2, 3, 4, 5, 6, 7-8 Gäste -->
+        </div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <!-- STEP 2: Time Slots from 07:00 to 24:00 -->
+      <div class="booking-step">
+        <h3 class="booking-step-title" id="step2Title">
+          <span class="step-num-badge">2</span> 2. Uhrzeit wählen (07:00 – 24:00 Uhr)
+        </h3>
+
+        <!-- Time categories (All, Früh, Mittag, Nachmittag, Abend) -->
+        <div class="time-category-tabs" id="timeCatTabs">
+          <!-- Dynamically populated -->
+        </div>
+
+        <!-- Grid of 30-min time buttons -->
+        <div class="time-slots-grid" id="timeSlotsGrid">
+          <!-- Dynamically populated: 07:00 ... 23:30 -->
+        </div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <!-- STEP 3: 15 Tables Interactive Selection -->
+      <div class="booking-step">
+        <div class="table-selection-header">
+          <h3 class="booking-step-title" id="step3Title" style="margin-bottom:0;">
+            <span class="step-num-badge">3</span> 3. Tisch auswählen (15 Tische verfügbar)
+          </h3>
+          <div class="view-toggle-btns">
+            <button type="button" class="btn-view-toggle active" id="btnViewGrid">
+              <span>&#128065;</span> Kartenansicht
+            </button>
+            <button type="button" class="btn-view-toggle" id="btnViewMap">
+              <span>&#128506;</span> Tischplan (Floor Map)
+            </button>
+          </div>
+        </div>
+
+        <!-- Table status legend -->
+        <div class="table-filter-info">
+          <span id="tableFilterInfo">15 von 15 Tischen verfügbar</span>
+          <div class="table-legend">
+            <div class="legend-item"><span class="legend-dot free"></span> <span id="legendFree">Frei</span></div>
+            <div class="legend-item"><span class="legend-dot reserved"></span> <span id="legendReserved">Belegt</span></div>
+            <div class="legend-item"><span class="legend-dot selected"></span> <span id="legendSelected">Gewählt</span></div>
+          </div>
+        </div>
+
+        <!-- Table View 1: Card Grid View -->
+        <div class="tables-grid-view" id="tablesGridView">
+          <!-- Dynamically populated with 15 table cards -->
+        </div>
+
+        <!-- Table View 2: Interactive SVG Floor Map View -->
+        <div class="floor-map-view" id="floorMapView">
+          <div class="floor-map-header">
+            <span>&#128506; Interaktiver Restaurant-Grundriss (Klicken Sie auf einen Tisch)</span>
+            <span>Eingang &bull; Saal &bull; Wintergarten</span>
+          </div>
+          <svg viewBox="0 0 780 380" class="floor-map-svg" id="floorMapSvg">
+            <!-- Dynamically populated SVG nodes -->
+          </svg>
+        </div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <!-- STEP 4: Customer Details & Confirmation -->
+      <div class="booking-step">
+        <h3 class="booking-step-title" id="step4Title">
+          <span class="step-num-badge">4</span> 4. Kontaktdaten eingeben
+        </h3>
+
+        <form id="formCustomer" novalidate>
+          <div class="booking-form-grid">
+            <div>
+              <label for="inputName" class="form-field-label" id="labelName">Vor- und Nachname *</label>
+              <input type="text" id="inputName" class="form-input-text" placeholder="z.B. Max Mustermann" required>
+            </div>
+            <div>
+              <label for="inputPhone" class="form-field-label" id="labelPhone">Telefonnummer *</label>
+              <input type="tel" id="inputPhone" class="form-input-text" placeholder="+43 664 1234567" required>
+            </div>
+            <div class="form-group-full">
+              <label for="inputEmail" class="form-field-label" id="labelEmail">E-Mail-Adresse *</label>
+              <input type="email" id="inputEmail" class="form-input-text" placeholder="max@beispiel.at" required>
+            </div>
+            <div class="form-group-full">
+              <label for="inputNotes" class="form-field-label" id="labelNotes">Besondere Wünsche / Anlass (optional)</label>
+              <input type="text" id="inputNotes" class="form-input-text" placeholder="z.B. Geburtstag, Fensterplatz gewünscht, Allergien...">
+            </div>
+          </div>
+
+          <!-- Real-Time Booking Summary Box -->
+          <div class="booking-summary-banner">
+            <div class="summary-items-list">
+              <div class="summary-col">
+                <span class="summary-label" id="sumDateLabel">Datum</span>
+                <span class="summary-val" id="sumDateVal">-</span>
+              </div>
+              <div class="summary-col">
+                <span class="summary-label" id="sumTimeLabel">Uhrzeit</span>
+                <span class="summary-val" id="sumTimeVal">-</span>
+              </div>
+              <div class="summary-col">
+                <span class="summary-label" id="sumGuestsLabel">Gäste</span>
+                <span class="summary-val" id="sumGuestsVal">-</span>
+              </div>
+              <div class="summary-col">
+                <span class="summary-label" id="sumTableLabel">Tisch-Nr.</span>
+                <span class="summary-val" id="sumTableVal">-</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn-submit-booking" id="btnSubmitBooking">
+            <span>Tisch jetzt verbindlich reservieren</span>
+            <span style="font-size:18px;">&rarr;</span>
+          </button>
+        </form>
+
+        <p class="system-footnote" id="systemFootnote">
+          Online-Reservierungen sind mit dem internen Tischverwaltungssystem von Restaurant Kesar verbunden.
+        </p>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- ==========================================
+       MODAL 1: Booking Confirmation & Receipt
+       ========================================== -->
+  <div class="modal-overlay" id="modalSuccess">
+    <div class="modal-card">
+      <button type="button" class="btn-modal-close" id="btnModalCloseSuccess" title="Schließen">&times;</button>
+      
+      <div class="success-icon-wrap">&#10003;</div>
+      
+      <h2 style="font-family:var(--font-serif); font-size:24px; color:#17201d; margin-bottom:6px; text-align:center;" id="modalSuccessTitle">
+        Reservierung erfolgreich bestätigt!
+      </h2>
+      <p style="font-size:14px; color:#5a6460; margin-bottom:16px; text-align:center;" id="modalSuccessText">
+        Vielen Dank! Wir freuen uns sehr auf Ihren Besuch im Restaurant Kesar.
+      </p>
+
+      <div style="text-align:center;">
+        <span style="font-size:11px; text-transform:uppercase; color:#8c9692; display:block;" id="refCodeLabel">Ihre Buchungsnummer:</span>
+        <div class="confirmation-booking-code" id="confirmBookingCode">KSR-84920</div>
+      </div>
+
+      <!-- Receipt Breakdown -->
+      <div class="receipt-details-list">
+        <div class="receipt-row">
+          <span class="r-label">Datum:</span>
+          <span class="r-val" id="receiptDate">-</span>
+        </div>
+        <div class="receipt-row">
+          <span class="r-label">Uhrzeit:</span>
+          <span class="r-val" id="receiptTime">-</span>
+        </div>
+        <div class="receipt-row">
+          <span class="r-label">Gäste:</span>
+          <span class="r-val" id="receiptGuests">-</span>
+        </div>
+        <div class="receipt-row">
+          <span class="r-label">Tisch:</span>
+          <span class="r-val" id="receiptTable">-</span>
+        </div>
+        <div class="receipt-row">
+          <span class="r-label">Name:</span>
+          <span class="r-val" id="receiptName">-</span>
+        </div>
+        <div class="receipt-row">
+          <span class="r-label">Restaurant:</span>
+          <span class="r-val">Restaurant Kesar (Waidhofen/Thaya)</span>
+        </div>
+      </div>
+
+      <!-- Modal Action Buttons -->
+      <div class="modal-actions-wrap">
+        <button type="button" class="btn-modal-primary" id="btnAddToCalendar">
+          <span>&#128197;</span> Zu Kalender hinzufügen (.ics)
+        </button>
+        <button type="button" class="btn-modal-secondary" id="btnPrintBooking">
+          <span>&#128438;</span> Buchung drucken
+        </button>
+        <button type="button" class="btn-modal-secondary" id="btnNewBooking">
+          Weitere Reservierung machen
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL 2: "Meine Buchungen" (View & Cancel)
+       ========================================== -->
+  <div class="modal-overlay" id="modalMyBookings">
+    <div class="modal-card">
+      <button type="button" class="btn-modal-close" id="btnModalCloseBookings" title="Schließen">&times;</button>
+      
+      <h2 style="font-family:var(--font-serif); font-size:22px; color:#17201d; margin-bottom:12px;" id="myBookingsTitle">
+        Meine aktiven Reservierungen
+      </h2>
+      <p style="font-size:13px; color:#5a6460; margin-bottom:16px;">
+        Hier sehen Sie alle auf diesem Gerät gespeicherten Reservierungen und können diese bei Bedarf stornieren.
+      </p>
+
+      <div class="my-bookings-list" id="myBookingsList">
+        <!-- Dynamically populated from localStorage -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Reservation Script -->
+  <script src="assets/js/reservation.js"></script>
+
+</body>
+</html>
